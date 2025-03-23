@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Enviar Notícia</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #f4f4f4;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .question {
+            font-size: 18px;
+            margin: 20px 0;
+        }
+
+        .question input {
+            margin: 0 10px;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+
+
+        .inactive {
+            background-color: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Envio de Notícia</h1>
+    <p>Nos envie a sua notícia para avaliarmos!</p>
+
+    <div class="form-container">
+        <form action="denuncia.html" method="GET">
+            <div class="question">
+                <p>Você acha que podemos fazer humor com essa notícia?</p>
+                <label>
+                    <input type="radio" name="humor" value="sim" onclick="toggleColor(this)"> Sim
+                </label>
+                <label>
+                    <input type="radio" name="humor" value="nao" onclick="toggleColor(this)"> Não
+                </label>
+            </div>
+
+            <div>
+                <input type="email" class="input-field" name="email" placeholder="Seu e-mail" required>
+            </div>
+
+            <div>
+                <textarea class="input-field" name="descricao" placeholder="Descreva o que aconteceu..." rows="5" required></textarea>
+            </div>
+
+        </form>
+
+        <!-- Botão para a Falsa mensagem de Denúncia Recebida -->
+        <a href="recebido.html" class="btn-voltar">Enviar</a>
+    </div>
+
+
+    <script>
+        function toggleColor(selected) {
+            const sim = document.querySelector('input[value="sim"]');
+            const nao = document.querySelector('input[value="nao"]');
+
+            if (selected.value === "sim") {
+                sim.parentElement.style.color = "red"; // Vermelho
+                nao.parentElement.style.color = "#808080"; // Cinza
+            } else {
+                nao.parentElement.style.color = "red"; // Vermelho
+                sim.parentElement.style.color = "#808080"; // Cinza
+            }
+        }
+    </script>
+</body>
+</html>
